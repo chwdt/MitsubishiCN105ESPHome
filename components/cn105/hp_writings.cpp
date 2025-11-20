@@ -454,7 +454,7 @@ void CN105Climate::sendRemoteTemperature() {
     if (this->remoteTemperature_ > 0) {
         packet[6] = 0x01;
         float temp = round(this->remoteTemperature_ * 2);
-        packet[7] = static_cast<uint8_t>(temp - 16);
+        // packet[7] = static_cast<uint8_t>(temp - 16);
         packet[8] = static_cast<uint8_t>(temp + 128);
     } else {
         packet[8] = 0x80; //MHK1 send 80, even though it could be 00, since ControlByte is 00
